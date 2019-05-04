@@ -1,49 +1,35 @@
 #include <iostream>
 #include <conio.h>
-#include <iomanip>
-#include <cmath>
+
 using namespace std;
 
-int main()
+int main ()
 {
-	int x, y;
-	float V;
-
-	cout << " Please enter value for x " << endl;
-	cin >> x;
+	double price, usedLiters, latePay, latePrice, waterPricing, gallon;
+	price = 35;
+	latePrice = 20;
 	
-	cout << " Please enter value for y " << endl;
-	cin >> y;
+	cout << " Please enter your water consumption in gallons "<< endl;
+	cin >> gallon; 
 	
-	switch(x)
+	cout << " Unpaid balance " << endl;
+	cin>> latePay;
+	
+	
+	if (latePay >0)
 	{
+		usedLiters = gallon * 1.10;
+		waterPricing = price + usedLiters + latePrice+ latePay;
+		cout << " Your water bill is " << waterPricing << endl;
+	}
 	
-	case 1:
-		if (x==1 && 1<y<5)
-			V = x * y * 2.5;
-			
-		else if (x==1 && y>=5)
-			V = x + y/2.5;
-			break;
+	else 
+	{
+		usedLiters = gallon * 1.10;
+		waterPricing = price + usedLiters; 
+		cout << " Your water bill is " << waterPricing<< endl;
 		
-	case 2:
-		if (x==2 && y<=5)
-			V = abs((x - y) / 2.5);
-			
-		else if (x==2 && y>5)
-			V = x - sqrt(y + 2.5);
-			break;
-			
-	default:
-		V = x + y + 2.5;
-			break;
-					
-		}
-		cout << setw(10);
-		cout << fixed;
-		cout << setprecision(2);
-		cout << V;
-		
-		_getch();
-		return 0;
-		}
+	}
+_getch();
+return 0;
+}
